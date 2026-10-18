@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div><p class="eyebrow">የዲጂታል ዜጎች አገልግሎት</p><h1>የእርስዎ ድምፅ፣<br>የመፍትሔ መጀመሪያ!</h1><p>ቅሬታዎን ያቅርቡ፣ የመከታተያ ቁጥር ይቀበሉ፣ የጉዳይዎን ሂደት ይከታተሉ።</p><div class="actions"><a class="btn primary" href="{{ url_for('submit') }}">＋ ቅሬታ አቅርብ</a><a class="btn light" href="{{ url_for('track') }}">ጉዳዬን ተከታተል</a></div></div><div class="hero-card"><div class="hero-icon">✓</div><h3>ቀላል • ግልጽ • ተደራሽ</h3><p>የአገልግሎት ችግሮችን በዲጂታል መንገድ ለማስመዝገብ የተዘጋጀ መድረክ።</p></div></section>
+<h2 class="section-title">ዋና አገልግሎቶች</h2><div class="grid three">
+<a class="tile" href="{{ url_for('submit') }}"><span class="tile-icon">✎</span><h3>ቅሬታ ማቅረብ</h3><p>ችግርዎን በቅጹ ይመዝግቡ።</p></a>
+<a class="tile" href="{{ url_for('track') }}"><span class="tile-icon">⌕</span><h3>የጉዳይ መከታተያ</h3><p>በመከታተያ ቁጥር የሂደቱን ሁኔታ ይመልከቱ።</p></a>
+<div class="tile"><span class="tile-icon">⚖</span><h3>መልካም አስተዳደር</h3><p>ግልጽነት፣ ተጠያቂነትና ፍትሐዊ አገልግሎትን ማጠናከር።</p></div>
+</div><div class="notice"><strong>ማስታወሻ፦</strong> የመከታተያ ቁጥርዎን በደህና ያስቀምጡ። አስቸኳይ የሕይወት ወይም የደህንነት አደጋ ካለ ይህን ድረ-ገጽ ብቻ አይጠቀሙ፤ በቀጥታ ለሚመለከተው አካል ያሳውቁ።</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}የአቶቲ ኡሎ የዜጎች ድምፅ{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="mark">AU</div><div><strong>የአቶቲ ኡሎ ወረዳ</strong><span>የዜጎች ድምፅ • ዲጂታል አገልግሎት</span></div></div>
+  <nav><a href="{{ url_for('home') }}">መነሻ</a><a href="{{ url_for('submit') }}">ቅሬታ አቅርብ</a><a href="{{ url_for('track') }}">ጉዳዬን ተከታተል</a>
+  {% if session.get('admin_id') %}<a href="{{ url_for('dashboard') }}">ዳሽቦርድ</a><a href="{{ url_for('reports') }}">ሪፖርቶች</a><a href="{{ url_for('logout') }}">ውጣ</a>{% else %}<a href="{{ url_for('login') }}">የአስተዳዳሪ መግቢያ</a>{% endif %}</nav>
+</header>
+<main class="container">
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+</main>
+<footer><strong>የእርስዎ ድምፅ ለለውጥ መነሻ ነው!</strong><p>የዜጎች መረጃ በኃላፊነት መጠበቅ አለበት።</p></footer>
+</body></html>

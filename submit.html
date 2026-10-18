@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}ቅሬታ አቅርብ{% endblock %}{% block content %}
+<div class="page-head"><p class="eyebrow">የዜጎች አገልግሎት</p><h1>ቅሬታ ማቅረቢያ ቅጽ</h1><p>ከ* ጋር የተመለከቱት መስኮች መሞላት አለባቸው።</p></div>
+<form method="post" class="form-card">
+<div class="grid two">
+<label>ሙሉ ስም <span class="muted">(አማራጭ)</span><input name="full_name" value="{{ values.get('full_name','') }}" maxlength="120"></label>
+<label>ስልክ ቁጥር <span class="muted">(አማራጭ)</span><input name="phone" value="{{ values.get('phone','') }}" maxlength="30"></label>
+<label>ቀበሌ *<select name="kebele" required><option value="">ይምረጡ</option>{% for x in kebeles %}<option {% if values.get('kebele')==x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+<label>የሚመለከተው ተቋም *<select name="institution" required><option value="">ይምረጡ</option>{% for x in institutions %}<option {% if values.get('institution')==x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+<label>የቅሬታ ምድብ *<select name="category" required><option value="">ይምረጡ</option>{% for x in categories %}<option {% if values.get('category')==x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+<label>የተከሰተበት ቀን<input type="date" name="incident_date" value="{{ values.get('incident_date','') }}"></label>
+<label>የችግሩ ርዕስ *<input name="title" required maxlength="180" value="{{ values.get('title','') }}" placeholder="ችግሩን በአጭሩ ይግለጹ"></label>
+<label>የችግሩ ቦታ<input name="location" maxlength="180" value="{{ values.get('location','') }}" placeholder="አካባቢ/ቦታ"></label>
+</div>
+<label>የቅሬታው ዝርዝር *<textarea name="description" rows="6" required maxlength="8000" placeholder="ምን እንደተፈጠረ፣ መቼና የሚመለከተው አገልግሎት ምን እንደሆነ ያብራሩ።">{{ values.get('description','') }}</textarea></label>
+<div class="notice">የሌላ ሰውን ሚስጥራዊ መረጃ አያስገቡ። በዚህ የመጀመሪያ ስሪት ፋይል/ማስረጃ ማያያዝ አልተካተተም።</div>
+<label class="check"><input type="checkbox" required> ያስገባሁት መረጃ በእውቀቴ መጠን ትክክለኛ መሆኑን አረጋግጣለሁ።</label>
+<button class="btn primary" type="submit">ቅሬታዬን አስገባ →</button>
+</form>{% endblock %}

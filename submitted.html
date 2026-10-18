@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="success-card"><div class="success-icon">✓</div><h1>ቅሬታዎ ተመዝግቧል!</h1><p>የመከታተያ ቁጥርዎን ይቅዱና በደህና ያስቀምጡ።</p><div class="tracking">{{ tracking }}</div><p class="muted">ቁጥሩን በመጠቀም የጉዳይዎን ሁኔታ መከታተል ይችላሉ።</p><a class="btn primary" href="{{ url_for('track') }}">ጉዳዬን ተከታተል</a></section>{% endblock %}

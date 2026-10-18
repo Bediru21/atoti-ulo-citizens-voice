@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<div class="page-head"><p class="eyebrow">የአስተዳደር መረጃ</p><h1>ሪፖርቶችና ስታቲስቲክስ</h1><p>የተመዘገቡ ጉዳዮችን በምድብ፣ በተቋም፣ በቀበሌና በሁኔታ ለማየት።</p></div><div class="grid two">
+<section class="form-card"><h2>በሁኔታ</h2><table><tr><th>ሁኔታ</th><th>ብዛት</th></tr>{% for r in by_status %}<tr><td>{{ status_label(r['status']) }}</td><td>{{ r['n'] }}</td></tr>{% endfor %}</table></section>
+<section class="form-card"><h2>በቅሬታ ምድብ</h2><table><tr><th>ምድብ</th><th>ብዛት</th></tr>{% for r in by_category %}<tr><td>{{ r['category'] }}</td><td>{{ r['n'] }}</td></tr>{% endfor %}</table></section>
+<section class="form-card"><h2>በተቋም</h2><table><tr><th>ተቋም</th><th>ብዛት</th></tr>{% for r in by_institution %}<tr><td>{{ r['institution'] }}</td><td>{{ r['n'] }}</td></tr>{% endfor %}</table></section>
+<section class="form-card"><h2>በቀበሌ</h2><table><tr><th>ቀበሌ</th><th>ብዛት</th></tr>{% for r in by_kebele %}<tr><td>{{ r['kebele'] }}</td><td>{{ r['n'] }}</td></tr>{% endfor %}</table></section>
+<section class="form-card"><h2>በወር (የመጨረሻ 12 ወራት ውስጥ የተመዘገቡ ወራት)</h2><table><tr><th>ወር</th><th>ብዛት</th></tr>{% for r in monthly %}<tr><td>{{ r['month'] }}</td><td>{{ r['n'] }}</td></tr>{% endfor %}</table></section></div><p><a class="btn primary" href="{{ url_for('export_csv') }}">ሁሉንም መረጃ CSV አውርድ</a></p>{% endblock %}
